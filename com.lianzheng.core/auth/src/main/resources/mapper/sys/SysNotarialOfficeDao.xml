@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lianzheng.core.auth.mgmt.dao.SysNotarialOfficeDao">
+    <select id="selectByName" resultType="com.lianzheng.core.auth.mgmt.entity.SysNotarialOfficeEntity">
+        select id,
+               notaryOfficeName,
+               sealUrl
+        from sys_notarial_office
+        <where>
+            <if test="notaryOfficeName != null and notaryOfficeName != ''">
+                and notaryOfficeName like concat('%', #{notaryOfficeName}, '%')
+            </if>
+            and flag = 0
+        </where>
+        <if test="pageNo != null and pageSize != null">
+            limit #{pageNo},#{pageSize}
+        </if>
+    </select>
+
+    <select id="findOneByUserId" resultType="com.lianzheng.core.auth.mgmt.entity.SysNotarialOfficeEntity">
+        select o.*
+        from sys_notarial_office o,
+             sys_user u
+        where o.id = u.notarialOfficeId
+          and o.flag = 0
+          and u.status = 1
+          and u.id = #{userId}
+        limit 1
+    </select>
+</mapper>

@@ -1,0 +1,139 @@
+#注意:在yml文件中添加value值时,value前面需要加一个空格
+#2.0.0的配置切换为servlet.path而不是"-"
+server:
+  port: 8088 #端口号
+  max-http-header-size: 100000 #kb
+  tomcat:
+    max-http-form-post-size: -1
+  servlet:
+    context-path: /ksh5 #访问根路径
+
+#文件保存的磁盘路径
+file:
+#    path: C:\Users\86139\IdeaProjects\policy_certificate_service_new\uploads
+  path: /home/zxsl/service-H5/fileUpload
+#    path: /home/pubcert/policy_certificate_service/run/h5/fileUpload
+
+outConfigPath: /home/zxsl/outConfigPath/  #toml配置文件的目录
+#spring:
+#  Datasource: #数据库相关
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  resources:
+#    static-locations: file:${file.path}
+##    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${file.path}
+#  mvc:
+#    date-format: yyyy-MM-dd HH:mm:ss #mvc接收参数时对日期进行格式化
+#    async:
+#      request-timeout: 20s
+#  servlet:
+#    multipart: # 单个文件大小
+#      max-file-size: 100MB # 设置总上传的文件大小
+#      max-request-size: 200MB
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss #jackson对响应回去的日期参数进行格式化
+#    time-zone: GMT+8
+
+logging:
+  file:
+    path: log/charging/
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    call-setters-on-nulls: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/**/*.xml
+  global-config:
+    # 逻辑删除配置
+    db-config:
+      # 删除前
+      logic-not-delete-value: 1
+      # 删除后
+      logic-delete-value: 0
+
+swagger:
+  enable: true
+  application-name: "昆山H5文档"
+  application-version: 1.0
+  application-description: 数据整合
+
+
+############################################################
+#
+# 配置数据源相关 使用阿里巴巴的druid数据源
+#
+############################################################
+## 分页插件配置
+#pagehelper.helperDialect=mysql
+#pagehelper.reasonable=true
+#pagehelper.supportMethodsArguments=true
+#pagehelper.params=count=countSql
+
+
+
+
+#基础的URL
+ks:
+ debug: false
+ baseDomain: https://zxsl.ksgzc.com
+#微信支付完成后让H5显示的界面URL, 后面更上的是金额
+ payCallPageUrl: ${ks.baseDomain}/onlinePaymentState?statecode=1&realAmount=
+#文件上传的URL
+ fileUrl: ${ks.baseDomain}/ksh5/file/
+ generateReceipt: http://localhost:9008/notarization/sys/certificate/generateReceipt?id=
+
+#打包上线的数据库
+spring:
+  datasource:
+    dynamic:
+              primary: h5 #设置默认的数据源或者数据源组,默认值即为master
+              strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+              datasource:
+                  h5:
+                      driver-class-name: com.mysql.cj.jdbc.Driver
+                      url: jdbc:mysql://192.168.1.249:3306/online?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+                      username: dev
+                      password: 5MGBXsWLJYj7n@7cH
+                  mgmt:
+                      driver-class-name: com.mysql.cj.jdbc.Driver
+                      url: jdbc:mysql://192.168.1.249:3306/online-mgmt?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+                      username: dev
+                      password: 5MGBXsWLJYj7n@7cH
+  resources:
+    static-locations: file:${file.path}
+#    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${file.path}
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss #mvc接收参数时对日期进行格式化
+    async:
+      request-timeout: 20s
+  servlet:
+    multipart: # 单个文件大小
+      max-file-size: 100MB # 设置总上传的文件大小
+      max-request-size: 200MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss #jackson对响应回去的日期参数进行格式化
+    time-zone: GMT+8
+
+  redis:
+   host: 127.0.0.1
+   password: kunshanzaixian
+   port: 6379
+   database: 0
+   timeout: 15000
+   jedis:
+      pool:
+        max-active: 200
+        max-wait: -1ms
+        max-idle: 20
+        min-idle: 10
+
+
+LLTidentify:
+    clientId: 202203041132039671
+    clientSecret: 46e74e2d0c8c77d1431529163a7571a3
+    baseUrl: http://ksappin.ksecard.cn:12501
+    redirectUri: https://zxsl.ksgzc.com/userLogin #路路通验证地址
+
+messages:
+    signName: 昆山市公证处 #短信公证处全称

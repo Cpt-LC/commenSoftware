@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lianzheng.notarization.master.dao.UserDao">
+
+    <select id="getAgentInfo" resultType="hashmap">
+    SELECT u.birth as birthAgent, u.gender as genderAgent ,u.idCardNo as idCardNoAgent , u.idCardType as idCardTypeAgent ,u.idCardAddress as idCardAddressAgent ,u.phone as phoneAgent ,u.realName as realNameAgent
+     FROM `user`  u   where u.id= #{id}
+
+    </select>
+
+</mapper>

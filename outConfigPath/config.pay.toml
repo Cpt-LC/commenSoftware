@@ -1,0 +1,11 @@
+#支付数据配置
+[[wxpay]]
+appId="wx84f8307ecb859d3e"  #appid
+mchId="1615450398"  #商户号
+mchKey="oLNqJ0DMkSijGoDMgqWKX1sWFvcqcF5M"  # 秘钥 微信商户平台(pay.weixin.qq.com)-->账户设置-->API安全-->密钥设置
+notifyUrl="https://ks.lianzhenglink.com/ksh5/payment/notify"  #可以被外网访问的接口、、回调接口地址
+timeExpire="2"   #订单支付绝对时效单位小时不可为小数
+
+
+
+

@@ -1,0 +1,38 @@
+# 端口
+server:
+  port: 9103
+  servlet:
+    context-path: /message
+
+
+message:
+  # 短信环境，可选sit、prod，sit为测试环境，测试环境下，签名一致为：苏州联证智能
+  enviroment: sit
+  # 发短信的方式，可选tencent、yunpian
+  way: tencent
+  tencent:
+    secretId: AKIDhEUUDfpjNkESQ7XfX7QSMzLQEm44oHTO
+    secretKey: f3A2cvxiCPM3TcU5PSEjxua092dz4toS
+  yunpian:
+    secretId:
+    secretKey:
+
+
+tencent-param:
+  paramList:
+    - {templateName: captcha,templateId: 1237840,templateParam: "captcha"}
+    - {templateName: notice,templateId: 1237845,templateParam: "name,processNo,action,todo"}
+    - {templateName: sendAfterPay,templateId: 1342337,templateParam: "name,processNo"}
+    - {templateName: toUser,templateId: 1342332,templateParam: "name,processNo"}
+    - {templateName: toNotary,templateId: 1342312,templateParam: "name,processNo"}
+    - {templateName: tradeRe,templateId: 1398670,templateParam: "transaction"}
+    - {templateName: tradeRefuse,templateId: 1396663,templateParam: ""}
+    - {templateName: tradeCert,templateId: 1397171,templateParam: "signName"}
+    - {templateName: loginCode,templateId: 1423640,templateParam: "code"}
+
+environment-param:
+  paramList:
+    - {name: "吴江公证处",appId: "1400601312"}
+    - {name: "昆山市公证处",appId: "1400602975"}
+    - {name: "苏州联证智能",appId: "1400563802"}
+    - {name: "中新公证处",appId: "1400680383"}

@@ -1,0 +1,40 @@
+# Cron-style Scheduling
+# The cron format consists of:
+# *    *    *    *    *    *
+# ┬    ┬    ┬    ┬    ┬    ┬
+# │    │    │    │    │    │
+# │    │    │    │    │    └ day of week (0 - 7) (0 or 7 is Sun)
+# │    │    │    │    └───── month (1 - 12)
+# │    │    │    └────────── day of month (1 - 31)
+# │    │    └─────────────── hour (0 - 23)
+# │    └──────────────────── minute (0 - 59)
+# └───────────────────────── second (0 - 59, OPTIONAL)
+#
+# Unsupported Cron Features
+# Currently, W (nearest weekday), L (last day of month/week), and # (nth weekday of the month) are not supported. Most other features supported by popular cron implementations should work just fine.
+#
+# cron-parser is used to parse crontab instructions.
+# 在线cron表达式生成器：https://www.pppet.net/
+
+#name="SampleScheduleJob" #如果不指定，默认取类名
+#group="sample" #设置任务的分组，这些属性都可以在数据库中，在多任务的时候使用;如果不指定，默认取模块名；比如，com.lianzheng.ledger.job.sample.SampleScheduleJob，取sample
+#triggerName="cron" #如果cron有值，则默认为"cron"，否则使用指定的值；如果cron无值，则默认为"simple"
+#triggerGroupName="cron" #如果cron有值，则默认为"cron"，否则使用指定的值；如果cron无值，则默认为"simple"
+
+[[jobs]]
+jobClass = "com.lianzheng.job.sample.SampleScheduleJob"
+# cron="0/5 * * * * ? *" #每5秒运行一次
+#
+# [[jobs]]
+# jobClass = "com.lianzheng.ledger.job.wechatsession.WechatSessionStoreSyncJob"
+#
+#
+# [[jobs]]
+# jobClass = "com.lianzheng.ledger.job.sample.SampleScheduleJob"
+# name="sampleJob3"
+# group="sample" #//设置任务的分组，这些属性都可以在数据库中，在多任务的时候使用
+# triggerName="simple1"
+# triggerGroupName="simple1"
+# [jobs.data]
+# text3="hello world"
+# lastID=0

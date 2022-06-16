@@ -1,0 +1,117 @@
+# 端口
+server:
+  port: 9112
+  servlet:
+    context-path: /notarizationOne
+
+spring:
+    datasource:
+      #多数据源的配置
+        dynamic:
+          primary: mgmt #设置默认的数据源或者数据源组,默认值即为master
+          strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+          datasource:
+            mgmt:
+              driver-class-name: com.mysql.cj.jdbc.Driver
+              url: jdbc:mysql://172.21.0.14:3306/online-mgmt?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+              username: dev
+              password: MvnG~YDP7nnpFjuZ
+            h5:
+              driver-class-name: com.mysql.cj.jdbc.Driver
+              url: jdbc:mysql://172.21.0.14:3306/online-jh?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+              username: dev
+              password: MvnG~YDP7nnpFjuZ
+            log:
+              driver-class-name: com.mysql.cj.jdbc.Driver
+              url: jdbc:mysql://172.21.0.14:3306/online-log?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+              username: dev
+              password: MvnG~YDP7nnpFjuZ
+    redis:
+      # Redis数据库索引（默认为0）
+      database: 0
+      # Redis服务器地址
+      host: 127.0.0.1
+      # Redis服务器连接端口
+      port: 6379
+      # Redis服务器连接密码（默认为空）
+      password: 'lianzheng@$5379'
+#      host: 127.0.0.1
+#      # Redis服务器连接端口
+#      port: 6379
+#      # Redis服务器连接密码（默认为空）
+#      password: ''
+      # 连接超时时间（毫秒）
+      timeout: 10000ms
+      lettuce:
+        pool:
+          # 连接池最大连接数
+          max-active: 200
+          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-wait: -1ms
+          # 连接池中的最大空闲连接
+          max-idle: 10
+          # 连接池中的最小空闲连接
+          min-idle: 0
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.lianzheng.core.auth.mgmt.entity
+  configuration:
+    map-underscore-to-camel-case: false
+    call-setters-on-nulls: true
+  global-config:
+    #数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID", ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: UUID
+      logic-delete-value: -1
+      logic-not-delete-value: 0
+      db-column-underline: false
+    banner: false
+
+scheduling:
+    enabled: true  #定时任务开关 默认开启
+#文件访问路径
+fileUrl: https://ks.lianzhenglink.com/notarizationOne/
+#fileUrl: http://localhost:9001/notarization/
+
+outConfigPath: /home/online/outConfigPath/  #toml配置文件的目录
+
+##############################################################################################################################
+###############################                  以下是配置项参数                        #####################################
+##############################################################################################################################
+
+payArray:
+    NotaryAmountP: 20000   #公证费个人
+    NotaryAmountPAdd: 0  #公证费用个人加价
+    NotaryAmountE: 0   #公证费企业
+    CopyAmount: 2000 #单位副本费
+    DoubleCertificate: 18000 #双证译文文本相符
+    ModeToSEFP: 0 #寄台湾海基会 普通快递
+    ModeToSEFS: 0 #特快
+
+
+messages:
+    signName: 苏州联证智能 #短信公证处全称
+
+
+country:
+    translateLanguage: 中国台湾、中国香港、中国、中国澳门 #不显示翻译问题的国家
+    certCountry: 美国、韩国、奥地利 #译文国家
+
+
+orderLogical:
+    notarizationExpireTime: 48 #订单失效截至时间单位H
+    notarizationRestTime: 1 #订单失效前剩余时间（发送提醒）
+
+
+document:
+    environment: one #项目环境 切换项目 zero(昆山)  one(建行)
+    csvTemplate: info-jianhang-fields.csv #详情页所需的模板
+    userDocumentFilter: ID-BACK,ID-FRONT #需展示用户上传的证明材料类型(不同项目中有所不同)
+    materialDocumentFilter: ACADEMIC,DEGREE,TAXOT,MARRIAGE,DIVORCE,MARRIAGEOT,DEPOSIT,BANKCARD,DL,POFEEDBACK #需展示用户上传的证明材料类型(不同项目中有所不同)
+    generateTemplates: j1,j2,j3,j4,j5,j6 #项目涉及的模板code 见文件 generate-templates.csv
+
+signUrl: /home/jhservice/pubApi/uploads #签名文件的绝对路径用于粘贴签名文件

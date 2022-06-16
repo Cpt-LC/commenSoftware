@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lianzheng.h5.mapper.NotarzationMasterMapper">
+
+
+
+    <select id="homeList" resultType="hashmap">
+      SELECT notar.status,notar.realName,notar.processNo,DATE_FORMAT(notar.createdTime,'%Y/%m/%d') as createdTime,notar.notarzationTypeCode,notar.id,notar.orderId,notar.signedReceipt,o.realAmount,o.paymentMode,o.invoiceTaxNo,o.billingName FROM notarzation_master notar LEFT JOIN `order` o ON notar.orderId = o.id WHERE notar.userId = #{userId} AND notar.notarialOfficeId = #{index} ORDER BY notar.updatedTime DESC
+
+    </select>
+
+
+    <select id="getIsRepeat" resultType="com.lianzheng.h5.entity.NotarzationMaster">
+        SELECT * FROM `notarzation_master` where userId = #{userId}
+        and isAgent=0
+        and notarzationTypeCode =#{code}
+        and `status` != 'Rejected'
+        and `status` != 'Canceled'
+    </select>
+</mapper>

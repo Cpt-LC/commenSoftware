@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lianzheng.notarization.master.dao.UserNotarzationMasterDao">
+
+    <select id="queryCertificateList" parameterType="map" resultType="com.lianzheng.notarization.master.form.NotarzationMasterForm">
+        SELECT nm.*,o.paymentMode,o.paymentStatus,o.realAmount,o.paidAmount,o.logisticsCompany,o.logisticsNumber FROM `notarzation_master` nm
+        LEFT JOIN `order` o on o.id = nm.orderId and o.isDeleted =0
+        where  nm.isDeleted =0
+        <if test="param1.processNo!=null and param1.processNo!=''">
+            and nm.processNo LIKE concat('%',#{param1.processNo},'%')
+        </if>
+        <if test="param1.status!=null and param1.status!=''">
+            and nm.status=#{param1.status}
+        </if>
+        <if test="param1.processStatus!=null and param1.processStatus!=''">
+            and nm.processStatus=#{param1.processStatus}
+        </if>
+        <if test="param1.realName!=null and param1.realName!=''">
+            and nm.realName LIKE concat('%',#{param1.realName},'%')
+        </if>
+        <if test="param1.idCardNo!=null and param1.idCardNo!=''">
+            and nm.idCardNo LIKE concat('%',#{param1.idCardNo},'%')
+        </if>
+        <if test="param1.phone!=null and param1.phone!=''">
+            and nm.phone LIKE concat('%',#{param1.phone},'%')
+        </if>
+        <if test="param1.notarzationTypeCode!=null and param1.notarzationTypeCode!=''">
+            and nm.notarzationTypeCode=#{param1.notarzationTypeCode}
+        </if>
+        <if test="param1.notarialOfficeId!=null and param1.notarialOfficeId!=''">
+            and nm.notarialOfficeId=#{param1.notarialOfficeId}
+        </if>
+        <if test="param1.orderId!=null and param1.orderId!=''">
+            and nm.orderId LIKE concat('%',#{param1.orderId},'%')
+        </if>
+        <if test="param1.paymentStatus!=null and param1.paymentStatus!=''">
+            and o.paymentStatus = #{param1.paymentStatus}
+        </if>
+        <if test="param1.actionBy!=null and param1.actionBy!=''">
+            and nm.actionBy = #{param1.actionBy}
+        </if>
+        order by nm.updatedTime desc
+        limit #{page},#{limit}
+    </select>
+    <select id="countCertificateList" resultType="int">
+        SELECT COUNT(*) FROM `notarzation_master` nm
+        LEFT JOIN `order` o on o.id = nm.orderId and o.isDeleted =0
+        where  nm.isDeleted =0
+        <if test="param1.processNo!=null and param1.processNo!=''">
+            and nm.processNo LIKE concat('%',#{param1.processNo},'%')
+        </if>
+        <if test="param1.status!=null and param1.status!=''">
+            and nm.status=#{param1.status}
+        </if>
+        <if test="param1.processStatus!=null and param1.processStatus!=''">
+            and nm.processStatus=#{param1.processStatus}
+        </if>
+        <if test="param1.realName!=null and param1.realName!=''">
+            and nm.realName LIKE concat('%',#{param1.realName},'%')
+        </if>
+        <if test="param1.idCardNo!=null and param1.idCardNo!=''">
+            and nm.idCardNo LIKE concat('%',#{param1.idCardNo},'%')
+        </if>
+        <if test="param1.phone!=null and param1.phone!=''">
+            and nm.phone LIKE concat('%',#{param1.phone},'%')
+        </if>
+        <if test="param1.notarzationTypeCode!=null and param1.notarzationTypeCode!=''">
+            and nm.notarzationTypeCode=#{param1.notarzationTypeCode}
+        </if>
+        <if test="param1.notarialOfficeId!=null and param1.notarialOfficeId!=''">
+            and nm.notarialOfficeId=#{param1.notarialOfficeId}
+        </if>
+        <if test="param1.orderId!=null and param1.orderId!=''">
+            and nm.orderId LIKE concat('%',#{param1.orderId},'%')
+        </if>
+        <if test="param1.paymentStatus!=null and param1.paymentStatus!=''">
+            and o.paymentStatus = #{param1.paymentStatus}
+        </if>
+        <if test="param1.actionBy!=null and param1.actionBy!=''">
+            and nm.actionBy = #{param1.actionBy}
+        </if>
+    </select>
+
+    <select id="getCertificateInfo" parameterType="string" resultType="java.util.HashMap">
+        SELECT nm.*   FROM `notarzation_master` nm
+        where nm.id =#{id} and nm.isDeleted =0
+    </select>
+
+    <select id="getPaidNotarization" resultType="com.lianzheng.notarization.master.entity.NotarzationMasterEntity">
+        select  a.*  from(
+            SELECT nm.* FROM `notarzation_master` nm
+            left join `order` o on nm.orderId=o.id
+            where nm.`status`='GeneratingCert' and o.paymentStatus='Paid' and (o.updatedTime  <![CDATA[ >= ]]>  DATE_SUB(NOW(),INTERVAL  20 MINUTE) or nm.updatedTime <![CDATA[ >= ]]>  DATE_SUB(NOW(),INTERVAL  20 MINUTE))
+            ) a
+            left join document d on a.id=d.refererId and d.categoryCode ='PDF-DRAFT' and d.isDeleted ='0'
+            where d.id is  NULL
+    </select>
+
+    <update id="truncateTable">
+           TRUNCATE TABLE notarzation_certificate
+    </update>
+
+
+    <update id="cancelNotarization">
+        UPDATE  `notarzation_master` nm  set  nm.`status`='Canceled',nm.updatedTime =NOW()
+        where (nm.`status`='PendingConfirmed' or nm.`status`='PendingPayment')  and nm.updatedTime  <![CDATA[ <= ]]> DATE_SUB(NOW(),INTERVAL  #{expireTime} HOUR )
+    </update>
+
+    <select id="getCancelNotarizationRestTime" resultType="com.lianzheng.notarization.master.entity.NotarzationMasterEntity">
+        SELECT nm.* FROM `notarzation_master` nm
+        where (nm.`status`='PendingConfirmed' or nm.`status`='PendingPayment')  and nm.updatedTime  <![CDATA[ >= ]]>  DATE_SUB(NOW(),INTERVAL  #{expireTime} HOUR )
+        and nm.updatedTime  <![CDATA[ <= ]]>  DATE_SUB(NOW(),INTERVAL  #{restTime} HOUR )
+    </select>
+</mapper>

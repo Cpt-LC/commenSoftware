@@ -1,0 +1,68 @@
+# 端口
+server:
+  port: 9088
+  servlet:
+    context-path: /pubLogin
+
+spring:
+    datasource:
+      #多数据源的配置
+        dynamic:
+          primary: mgmt #设置默认的数据源或者数据源组,默认值即为master
+          strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+          datasource:
+            mgmt:
+              driver-class-name: com.mysql.cj.jdbc.Driver
+              url: jdbc:mysql://192.168.2.52:3306/online-mgmt?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+              username: dev
+              password: 5MGBXsWLJYj7n7cH
+            log:
+              driver-class-name: com.mysql.cj.jdbc.Driver
+              url: jdbc:mysql://192.168.2.52:3306/online-log?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+              username: dev
+              password: 5MGBXsWLJYj7n7cH
+    redis:
+      # Redis数据库索引（默认为0）
+      database: 0
+      # Redis服务器地址
+      host: 192.168.2.52
+      # Redis服务器连接端口
+      port: 63794
+      # Redis服务器连接密码（默认为空）
+      password: Gjxhcd8L
+#      host: 127.0.0.1
+#      # Redis服务器连接端口
+#      port: 6379
+#      # Redis服务器连接密码（默认为空）
+#      password: ''
+      # 连接超时时间（毫秒）
+      timeout: 10000ms
+      lettuce:
+        pool:
+          # 连接池最大连接数
+          max-active: 200
+          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-wait: -1ms
+          # 连接池中的最大空闲连接
+          max-idle: 10
+          # 连接池中的最小空闲连接
+          min-idle: 0
+
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.lianzheng.core.auth.mgmt.entity
+  configuration:
+    map-underscore-to-camel-case: false
+    call-setters-on-nulls: true
+  global-config:
+    #数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID", ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: UUID
+      logic-delete-value: -1
+      logic-not-delete-value: 0
+      db-column-underline: false
+    banner: false

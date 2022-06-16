@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/com.lianzheng.core.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/com.lianzheng.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.message/com.lianzheng.message.iml" filepath="$PROJECT_DIR$/com.lianzheng.message/com.lianzheng.message.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.body.iml" filepath="$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.body.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.degree/com.lianzheng.notarization.degree.iml" filepath="$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.degree/com.lianzheng.notarization.degree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.driverLicense/com.lianzheng.notarization.driverLicense.iml" filepath="$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.driverLicense/com.lianzheng.notarization.driverLicense.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.graduation/com.lianzheng.notarization.graduation.iml" filepath="$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.graduation/com.lianzheng.notarization.graduation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.notarization.master/com.lianzheng.notarization.master.iml" filepath="$PROJECT_DIR$/com.lianzheng.notarization.master/com.lianzheng.notarization.master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.purchaseHouse/com.lianzheng.notarization.purchaseHouse.iml" filepath="$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.purchaseHouse/com.lianzheng.notarization.purchaseHouse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.sellHouse/com.lianzheng.notarization.sellHouse.iml" filepath="$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.sellHouse/com.lianzheng.notarization.sellHouse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.tax/com.lianzheng.notarization.tax.iml" filepath="$PROJECT_DIR$/com.lianzheng.notarization.body/com.lianzheng.notarization.tax/com.lianzheng.notarization.tax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/commenSoftware.iml" filepath="$PROJECT_DIR$/.idea/commenSoftware.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/auth/core-auth.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/auth/core-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/config/core-config.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/config/core-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/exceptionhandling/core-exceptionhandling.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/exceptionhandling/core-exceptionhandling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/log/core-log.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/log/core-log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/ocr/core-ocr.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/ocr/core-ocr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/payment/core-payment.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/payment/core-payment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/pdf/core-pdf.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/pdf/core-pdf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/request/core-request.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/request/core-request.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/resource/core-resource.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/resource/core-resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/server/core-server.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/server/core-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/sign/core-sign.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/sign/core-sign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.core/wechat/core-wechat.iml" filepath="$PROJECT_DIR$/com.lianzheng.core/wechat/core-wechat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.h5/h5.iml" filepath="$PROJECT_DIR$/com.lianzheng.h5/h5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.job/job.iml" filepath="$PROJECT_DIR$/com.lianzheng.job/job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.notarization.apiservice/management-apiservice.iml" filepath="$PROJECT_DIR$/com.lianzheng.notarization.apiservice/management-apiservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.management.login/management-login.iml" filepath="$PROJECT_DIR$/com.lianzheng.management.login/management-login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.lianzheng.management.service/management-service.iml" filepath="$PROJECT_DIR$/com.lianzheng.management.service/management-service.iml" />
+    </modules>
+  </component>
+</project>

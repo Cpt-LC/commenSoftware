@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lianzheng.notarization.master.dao.UserOrderDao">
+
+    <select id="getOrderInfo" parameterType="string" resultType="java.util.HashMap">
+        SELECT paymentMode,translationAmount,logisticsAmount,serviceAmount,isSend,sentToProvince,sentToCity,sentToArea,sentToPhone,sendtToName,sentToAddress,paymentStatus,
+               logisticsCompany,logisticsNumber,billingName,invoiceTaxNo
+        FROM `order` where id =#{orderId} and isDeleted =0
+    </select>
+</mapper>
