@@ -1,0 +1,8 @@
+org.springframework.boot.env.PropertySourceLoader=\
+    com.github.yingzhuo.springboot.env.propertysource.loader.TomlPropertySourceLoader
+org.springframework.boot.env.EnvironmentPostProcessor=\
+    com.github.yingzhuo.springboot.env.postprocessor.EnvironmentPostProcessor,\
+    com.github.yingzhuo.springboot.env.postprocessor.MainClassPostProcessor,\
+    com.github.yingzhuo.springboot.env.postprocessor.GlobalPostProcessor,\
+    com.github.yingzhuo.springboot.env.postprocessor.PropertyEnvironmentPostProcessor,\
+    com.github.yingzhuo.springboot.env.postprocessor.GitPostProcessor

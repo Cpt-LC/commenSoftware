@@ -1,0 +1,2 @@
+ALTER TABLE `notarzation_master` CHANGE `notarzationTypeCode` `notarzationTypeCode` ENUM ('TAX','AC','DC','NC','MC','DMC','UMC','COD','DL');
+ALTER TABLE `order` CHANGE `paymentStatus` `paymentStatus` ENUM ('NotPaid','Paid','Canceled','Refunded') NOT NULL DEFAULT "NotPaid";

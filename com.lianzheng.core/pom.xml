@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>parent</artifactId>
+        <groupId>com.lianzheng</groupId>
+        <version>0.0.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>com.lianzheng.core</artifactId>
+    <packaging>pom</packaging>
+    <!-- module的顺序决定了编译顺序 -->
+    <modules>
+        <module>resource</module>
+        <module>config</module>
+        <module>log</module>
+        <module>exceptionhandling</module>
+        <module>request</module>
+        <module>server</module>
+        <module>payment</module>
+        <module>wechat</module>
+        <module>auth</module>
+        <module>pdf</module>
+        <module>sign</module>
+        <module>ocr</module>
+    </modules>
+
+
+</project>

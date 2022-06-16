@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="com.lianzheng.message" />
+        <module name="com.lianzheng.notarization.degree" />
+        <module name="com.lianzheng.notarization.driverLicense" />
+        <module name="com.lianzheng.notarization.graduation" />
+        <module name="com.lianzheng.notarization.master" />
+        <module name="com.lianzheng.notarization.purchaseHouse" />
+        <module name="com.lianzheng.notarization.sellHouse" />
+        <module name="com.lianzheng.notarization.tax" />
+        <module name="core-auth" />
+        <module name="core-config" />
+        <module name="core-exceptionhandling" />
+        <module name="core-log" />
+        <module name="core-ocr" />
+        <module name="core-payment" />
+        <module name="core-pdf" />
+        <module name="core-request" />
+        <module name="core-resource" />
+        <module name="core-server" />
+        <module name="core-sign" />
+        <module name="core-wechat" />
+        <module name="h5" />
+        <module name="job" />
+        <module name="management-apiservice" />
+        <module name="management-login" />
+        <module name="management-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.lianzheng.core" target="8" />
+      <module name="com.lianzheng.message" target="8" />
+      <module name="com.lianzheng.notarization.body" target="8" />
+      <module name="com.lianzheng.notarization.degree" target="8" />
+      <module name="com.lianzheng.notarization.driverLicense" target="8" />
+      <module name="com.lianzheng.notarization.graduation" target="8" />
+      <module name="com.lianzheng.notarization.master" target="8" />
+      <module name="com.lianzheng.notarization.purchaseHouse" target="8" />
+      <module name="com.lianzheng.notarization.sellHouse" target="8" />
+      <module name="com.lianzheng.notarization.tax" target="8" />
+      <module name="commenSoftware" target="8" />
+      <module name="core-auth" target="8" />
+      <module name="core-config" target="8" />
+      <module name="core-exceptionhandling" target="8" />
+      <module name="core-log" target="8" />
+      <module name="core-ocr" target="8" />
+      <module name="core-payment" target="8" />
+      <module name="core-pdf" target="8" />
+      <module name="core-request" target="8" />
+      <module name="core-resource" target="8" />
+      <module name="core-server" target="8" />
+      <module name="core-sign" target="8" />
+      <module name="core-wechat" target="8" />
+      <module name="h5" target="1.8" />
+      <module name="job" target="1.8" />
+      <module name="management-apiservice" target="1.8" />
+      <module name="management-login" target="1.8" />
+      <module name="management-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

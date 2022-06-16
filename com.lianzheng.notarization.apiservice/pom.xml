@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.lianzheng</groupId>
+	<artifactId>management-apiservice</artifactId>
+	<version>0.0.1</version>
+	<name>management-apiservice</name>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<spring.boot.version>2.5.5</spring.boot.version>
+		<mybatisplus.version>3.2.0</mybatisplus.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring.boot.version}</version>
+			<exclusions>
+				<!--                <exclusion>-->
+				<!--                    <groupId>org.hibernate</groupId>-->
+				<!--                    <artifactId>hibernate-validator</artifactId>-->
+				<!--                </exclusion>-->
+				<!-- 排除自带的logback依赖,解决multiple SLF4J bindings -->
+				<!-- spring-boot-starter 和 spring-boot-starter-web两个依赖中都需要进行排除-->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+			<version>2.5.5</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatisplus.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-extension</artifactId>
+			<version>${mybatisplus.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+			<version>${mybatisplus.version}</version>
+			<exclusions>
+				<!-- 排除自带的logback依赖,解决multiple SLF4J bindings -->
+				<!-- spring-boot-starter 和 spring-boot-starter-web两个依赖中都需要进行排除-->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.lianzheng</groupId>
+			<artifactId>core-log</artifactId>
+			<version>0.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+        <dependency>
+            <groupId>com.lianzheng</groupId>
+            <artifactId>core-sign</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+		<dependency>
+			<groupId>com.lianzheng</groupId>
+			<artifactId>core-exceptionhandling</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.lianzheng</groupId>
+			<artifactId>core-auth</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lianzheng</groupId>
+			<artifactId>com.lianzheng.notarization.master</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<!-- NOTE: We don't need a groupId specification because the group is
+                     org.apache.maven.plugins ...which is assumed by default.
+                 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<encoding>UTF-8</encoding><!-- 指定编码格式，否则在DOS下运行mvn命令时当发生文件资源copy时将使用系统默认使用GBK编码 -->
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+
+</project>

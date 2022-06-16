@@ -1,0 +1,17 @@
+[wework]
+corpid = "ww76b354ca648f8232" #企业微信
+
+[wework.session]
+secret="fSlf0Mld24NOVI4lOYdf5Qusht6MDDjsvb4rW0EQyf4"
+proxy = "http://49.233.56.250:9083"
+proxyPassword = "username:12345678"
+timeout = 0
+limit = 100
+
+[wework.session.mock]
+root='D:\workspace\Project\ledger_service_java\com.lianzheng.ledger.job\mock\' #mock数据的根路径
+loadedData = "mock.20211022.185222.json"
+# "mock.20211019.163010.json" #如果有值，则加载该文件作为模拟输入
+
+[wework.externalcontract]
+secret="2Qd0a9FseIf0TvW3VS0grWKFbG0NuND0QEnR2KE-pkY"

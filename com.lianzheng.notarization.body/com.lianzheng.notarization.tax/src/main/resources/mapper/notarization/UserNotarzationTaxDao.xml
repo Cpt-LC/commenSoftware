@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lianzheng.notarization.tax.dao.UserNotarizationTaxDao">
+
+    <select id="getCertificateInfo" parameterType="string" resultType="java.util.HashMap" >
+        SELECT nm.*,nt.issuingAuthority,nt.issuingTime FROM `notarzation_master` nm
+        LEFT JOIN notarization_tax nt on nm.id = nt.id and nt.isDeleted =0
+        where nm.id =#{id} and nm.isDeleted =0
+    </select>
+</mapper>

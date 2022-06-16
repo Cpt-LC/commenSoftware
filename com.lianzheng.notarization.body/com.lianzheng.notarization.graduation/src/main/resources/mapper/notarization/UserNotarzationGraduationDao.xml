@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lianzheng.notarization.graduation.dao.UserNotarzationGraduationDao">
+
+    <select id="getCertificateInfo" parameterType="string" resultType="java.util.HashMap" >
+        SELECT nm.*,ng.graduatedFrom,ng.graduatedDate FROM `notarzation_master` nm
+        LEFT JOIN notarzation_graduation ng on nm.id = ng.id and ng.isDeleted =0
+        where nm.id =#{id} and nm.isDeleted =0
+    </select>
+</mapper>
