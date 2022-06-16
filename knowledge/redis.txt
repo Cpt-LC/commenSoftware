@@ -1,0 +1,197 @@
+redis-server.exe redis.windows.conf 
+
+redis-cli -h 192.168.2.52 -p 63794
+电脑密码 lcxx22
+oracle Lc123456789!
+lcxx2222 忘记了某个的密码
+natapp -authtoken=691752ee380a382e
+
+jwfjkv3094@sandbox.com  沙箱账号
+https://openapi.alipay.com/gateway.do  支付宝正式网关
+
+zhouya@lianzhenglink.com云片账号
+Pass@1234
+
+git add .
+git status
+git commit -m 'update'
+git push origin master
+
+
+Page<JeecgDemo> page = new Page<JeecgDemo>(pageNo, pageSize);分页查询
+
+nohup java -jar demo.jar   运行jar宝
+
+netstat   -ano|findstr 300
+taskkill  /pid  (最后那一列显示的数字) /f 
+
+netstat -tunl
+
+
+
+node src/app
+
+
+luchao@lianzhenglink.com
+
+e48TlvGXNCScb3Sb
+
+sodu su切换root
+qweasdzxc123
+
+pubcert
+qweasd123
+
+https://tianyiadmin.lianzhenglink.com
+
+
+NetSh Advfirewall set allprofiles state off  #关闭防火墙
+Netsh Advfirewall show allprofiles            #查看防火墙状态
+
+
+tail -n 100 /var/log/nginx/tianyi_access_9001.log | grep
+
+ant-design-vue-jeecg-ningbo
+
+r2wzw@Bn
+
+
+
+scp jeecg-boot-module-system/target/jeecg-boot-module-system-2.4.6.jar root@49.233.58.123:/root/ningbo/service
+
+重启
+nginx -t
+nginx -s reload
+
+git stash
+git pull
+git stash pop
+
+
+
+CREATE TABLE `notarization_certificate` (
+  `certificateId` bigint(10) NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(32) NOT NULL,
+  PRIMARY KEY (`certificateId`)
+) ENGINE=MEMORY AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
+
+
+
+ALTER TABLE `user_certificate` ADD COLUMN `language` enum('english','chinese') DEFAULT 'chinese';
+
+
+https://www.runoob.com/linux/nginx-install-setup.html
+
+
+https://ksadmin.lianzhenglink.com/notarization/sys/certificate/generateReceipt
+
+location ^~/notarization/uploads/ {
+                access_log  /var/log/nginx/access-ks-uploads.log  main;
+ 
+                client_max_body_size 33m;
+                proxy_redirect off;
+                proxy_set_header Origin '';
+                proxy_set_header Host $host;
+                proxy_set_header REMOTE-HOST $remote_addr; 
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_pass http://localhost:3005/upload/;
+}
+
+systemctl status mysqld
+service mysqld stop
+service mysqld start
+
+中华人民共和国江苏省昆山市公证处
+
+
+java pm2 nginx  node npm
+
+
+firewall-cmd --reload
+service firewalld start
+firewall-cmd --state
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --remove-port=5672/tcp --permanent  #关闭5672端口
+firewall-cmd --zone=public --list-ports
+
+
+rz -be -y
+
+tar czf 
+tar -xzvf
+
+ find . | xargs grep -ri 'content'
+
+
+#查看cpu状况
+ps -eo pmem,pcpu,rss,vsize,args | sort -k 1 -r | less  
+htop
+
+scp management-apiservice-0.0.1.jar root@49.233.58.123:/root/notarization_kunshan/jhService
+
+ks.generateReceipt=http://localhost:9008/notarization/sys/certificate/generateReceipt?id=
+
+
+ALTER table notarzation_certificate add businessId VARCHAR(40)  not NULL
+
+
+
+/www/server/panel/vhost/nginx/
+
+
+
+//数据库
+GRANT ALL PRIVILEGES ON testdb.* TO 'myuser'
+
+-- 生效(刷新权限)
+FLUSH PRIVILEGES;
+
+source +路径 导入sql
+
+
+alter table user add idCardAddress VARCHAR(200) COMMENT '证件地址' AFTER idCardNo;
+ALTER TABLE notarzation_master add `isRepeat` int DEFAULT 0 not null  COMMENT '是否重复';
+ALTER TABLE notarzation_master ADD email VARCHAR(100) COMMENT '邮箱' AFTER realName;
+ALTER TABLE notarzation_master ADD pinyin VARCHAR(50) COMMENT '姓名拼音' AFTER realName;
+
+ALTER TABLE `order` ADD billingName VARCHAR(100) COMMENT '开票名称' AFTER isDeleted;
+ALTER TABLE `order` ADD invoiceTaxNo VARCHAR(100) COMMENT '开票税号' AFTER isDeleted;
+ALTER TABLE `notarzation_certificate` ADD notarialCertificateNo VARCHAR(45) Not NULL COMMENT '公证编号' AFTER businessId;
+ALTER TABLE `notarzation_master` CHANGE `notarzationTypeCode` `notarzationTypeCode` ENUM ('GR', 'TAX', 'DL', 'DC', 'NC');
+ALTER TABLE `notarzation_master` drop COLUMN hasForeign;
+
+
+SET FOREIGN_KEY_CHECKS = 0; 
+truncate notarzation_auth_comment;
+truncate document;
+truncate notarization_degree;
+truncate notarization_driver_license;
+truncate notarization_tax;
+truncate notarzation_certificate;
+truncate notarzation_graduation;
+truncate notarzation_master;
+truncate `order`;
+truncate user;
+SET FOREIGN_KEY_CHECKS = 1; 删除完成后设置 
+
+
+find ./nohup.log | xargs grep -ri '/h5PayUrl'
+
+
+sudo PM2_HOME=/usr/local/pm2 pm2
+
+
+/var/log/nginx/jh__access_3019.log
+
+
+mvn clean package -e -DskipTests
+
+
+service mysqld stop
+service mysqld start
+
+
+-Dspring.config.location=application.yml
+
+/home/jhservice/service
